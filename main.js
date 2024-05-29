@@ -14,14 +14,15 @@ async function imageSub(){
         },
       })
       let data = await res.json();
+      imges.image2 = image2.value;
       console.log(data);
 
       let divImage = document.getElementById("divImage")
-    //   let div = document.createElement("div")
+      let div = document.createElement("div")
       let imges = document.createElement("img")
       imges.src = data.image2
       
-    //   div.append(imges)
+      div.append(imges)
       divImage.append(imges)
     }
     imageSub()
@@ -31,13 +32,18 @@ let url="https://665737169f970b3b36c868dd.mockapi.io/js-Api";
 function imageGen(){
     let res= fetch(url)
     let data = res.json();
-
-    let divImage = document.getElementById("divImage")
-    let div = document.createElement("div")
-    let imges = document.createElement("img")
-    imges.src = data.image2
-
-    div.append(imges)
-    divImage.append(div)
+    
+    data.forEach(element => {
+        let divImage = document.getElementById("divImage")
+        let div = document.createElement("div")
+        let imges = document.createElement("img")
+        imges.src = element.image2
+        let btn = document.createElement('button')
+        
+        imges.append(div)
+        divImage.append(imges)
+    });
 }
 imageGen()
+
+//delete
