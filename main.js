@@ -3,7 +3,7 @@ let image2 =document.getElementById("image2")
 let btn = document.getElementById("btn")
 //post
 async function imageSub(){
-    let res= await fetch('https://665737169f970b3b36c868dd.mockapi.io/js-Api', {
+    let res= await fetch('https://665786425c36170526451ff0.mockapi.io/Api', {
         method: 'POST',
         body: JSON.stringify({
             image: image.value,
@@ -14,7 +14,6 @@ async function imageSub(){
         },
       })
       let data = await res.json();
-      imges.image2 = image2.value;
       console.log(data);
 
       let divImage = document.getElementById("divImage")
@@ -28,19 +27,19 @@ async function imageSub(){
     imageSub()
 
 //Get
-let url="https://665737169f970b3b36c868dd.mockapi.io/js-Api";
+let url="https://665786425c36170526451ff0.mockapi.io/Api";
 async function imageGen(){
     let res=await fetch(url)
     let data =await res.json();
     
     data.forEach(element => {
-        let div = document.createElement("div")
+        let divImage = document.createElement("divImage")
         let imges = document.createElement("img")
         imges.src = element.image2
-        let btn = document.createElement('button')
-        imges.append(div)
-        div.append(imges)
-        document.getElementById("div").append(divImage)
+        // let btn = document.createElement('button')
+        imges.append(divImage)
+        // div.append(imges)
+        // document.getElementById("div").append(divImage)
     });
 }
 imageGen()
