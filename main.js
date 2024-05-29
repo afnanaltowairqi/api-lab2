@@ -29,19 +29,18 @@ async function imageSub(){
 
 //Get
 let url="https://665737169f970b3b36c868dd.mockapi.io/js-Api";
-function imageGen(){
-    let res= fetch(url)
-    let data = res.json();
+async function imageGen(){
+    let res=await fetch(url)
+    let data =await res.json();
     
     data.forEach(element => {
-        let divImage = document.getElementById("divImage")
         let div = document.createElement("div")
         let imges = document.createElement("img")
         imges.src = element.image2
         let btn = document.createElement('button')
-        
         imges.append(div)
-        divImage.append(imges)
+        div.append(imges)
+        document.getElementById("div").append(divImage)
     });
 }
 imageGen()
