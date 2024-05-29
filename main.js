@@ -33,11 +33,11 @@ async function imageGen(){
     let data =await res.json();
     
     data.forEach(element => {
-        let divImage = document.createElement("divImage")
+        let divImage = document.getElementById("divImage")
         let imges = document.createElement("img")
         imges.src = element.image2
         // let btn = document.createElement('button')
-        imges.append(divImage)
+        divImage.append(imges)
         // div.append(imges)
         // document.getElementById("div").append(divImage)
     });
